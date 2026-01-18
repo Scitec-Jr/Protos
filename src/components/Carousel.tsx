@@ -35,11 +35,11 @@ export default function Carousel({ children, leftArrowSrc = "/assets/icons/leftA
 			</div>
 
 			<button onClick={() => emblaApi?.scrollPrev()} className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer" aria-label="Previous slide">
-				<Image src={leftArrowSrc} alt="Previous" width={34} height={34} />
+				<Image src={leftArrowSrc} alt="Previous" width={25} height={25} />
 			</button>
 
 			<button onClick={() => emblaApi?.scrollNext()} className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer" aria-label="Next slide">
-				<Image src={rightArrowSrc} alt="Next" width={34} height={34} />
+				<Image src={rightArrowSrc} alt="Next" width={25} height={25} />
 			</button>
 
 			{showDots && (
