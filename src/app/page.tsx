@@ -82,16 +82,16 @@ export default function Home() {
                 </div>
 
                 <Carousel>
-                    <div className="flex-[0_0_50%]">
+                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
 						<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 					</div>
-                    <div className="flex-[0_0_50%]">
+                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
 						<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 					</div>
-                    <div className="flex-[0_0_50%]">
+                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
 						<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 					</div>
-                    <div className="flex-[0_0_50%]">
+                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
 						<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 					</div>
                 </Carousel>
