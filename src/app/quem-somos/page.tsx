@@ -33,25 +33,25 @@ export default function AboutUs() {
 
 				<Carousel showDots={false}>
 					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
-						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={500} className="mb-4 mx-auto" />
+						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
                         <h3 className="serif text-(--secondary-color) text-center">Projeto 1</h3>
                         <p className="text-center">Descrição</p>
 					</div>
 
                     <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
-						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={500} className="mb-4 mx-auto" />
+						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
                         <h3 className="serif text-(--secondary-color) text-center">Projeto 1</h3>
                         <p className="text-center">Descrição</p>
 					</div>
 
                     <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
-						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={500} className="mb-4 mx-auto" />
+						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
                         <h3 className="serif text-(--secondary-color) text-center">Projeto 1</h3>
                         <p className="text-center">Descrição</p>
 					</div>
 
                     <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
-						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={500} className="mb-4 mx-auto" />
+						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
                         <h3 className="serif text-(--secondary-color) text-center">Projeto 1</h3>
                         <p className="text-center">Descrição</p>
 					</div>
