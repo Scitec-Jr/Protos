@@ -16,8 +16,8 @@ export default async function BlogTemplate({ params }: PageParams) {
 
 	return (
 		<main>
-			<section className="max-w-360 mx-auto pt-16 p-8 lg:px-16">
-				<div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+			<section className="max-w-360 mx-auto pt-8 lg:px-16">
+				<div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4">
 					<h1 className="text-4xl text-(--main-color)">{titlePage}</h1>
 
 					<div className="flex gap-4 p-2 bg-(--secondary-color) rounded">

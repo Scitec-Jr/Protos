@@ -4,7 +4,7 @@ import Carousel from "@/components/Carousel";
 export default function Gallery() {
 	return (
 		<main>
-			<section className="max-w-360 mx-auto pt-16 p-8 lg:px-8">
+			<section className="max-w-360 mx-auto p-8 lg:px-8">
 				<h2 className="text-4xl font-bold">Nossa Galeria</h2>
 				<h3 className="mb-4 text-xl">Laboratório</h3>
 
@@ -43,19 +43,19 @@ export default function Gallery() {
 				<h2 className="mb-4 text-xl">Cactos</h2>
 
 				<Carousel showDots={false}>
-					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_34%] px-4">
 						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
 					</div>
 
-					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_34%] px-4">
 						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
 					</div>
 
-					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_34%] px-4">
 						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
 					</div>
 
-					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_34%] px-4">
 						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
 					</div>
 				</Carousel>

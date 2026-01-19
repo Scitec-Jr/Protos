@@ -3,7 +3,7 @@ import Carousel from "@/components/Carousel";
 export default function Projects() {
     return (
         <main>
-            <section className="max-w-360 mx-auto py-16 px-8 lg:px-16">
+            <section className="max-w-360 mx-auto p-8 lg:px-16">
                 <h1 className="mb-8 text-4xl text-(--main-color)">Linhas de Pesquisa e Trabalho</h1>
 
                 <Carousel showDots={false}>

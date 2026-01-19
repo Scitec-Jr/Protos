@@ -4,7 +4,7 @@ import Carousel from "@/components/Carousel";
 export default function AboutUs() {
 	return (
 		<main>
-			<section className="max-w-360 mx-auto pt-16 p-8 lg:px-16">
+			<section className="max-w-360 mx-auto p-8 lg:px-16">
 				<h1 className="text-4xl text-(--main-color)">Sobre Nós</h1>
 				<p className="serif">Resumo sobre a pesquisa, com histórico e propostas (MVV)</p>
 			</section>
@@ -32,25 +32,25 @@ export default function AboutUs() {
 				<h2 className="mb-8 text-4xl text-(--main-color)">Principais pesquisas</h2>
 
 				<Carousel showDots={false}>
-					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_34%] px-4">
 						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
                         <h3 className="serif text-(--secondary-color) text-center">Projeto 1</h3>
                         <p className="text-center">Descrição</p>
 					</div>
 
-                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
+                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_34%] px-4">
 						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
                         <h3 className="serif text-(--secondary-color) text-center">Projeto 1</h3>
                         <p className="text-center">Descrição</p>
 					</div>
 
-                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
+                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_34%] px-4">
 						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
                         <h3 className="serif text-(--secondary-color) text-center">Projeto 1</h3>
                         <p className="text-center">Descrição</p>
 					</div>
 
-                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_33.34%] px-4">
+                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%] lg:flex-[0_0_34%] px-4">
 						<Image src={"/assets/images/placeholder.png"} alt="Projeto" width={300} height={300} className="h-50 mb-4 mx-auto" />
                         <h3 className="serif text-(--secondary-color) text-center">Projeto 1</h3>
                         <p className="text-center">Descrição</p>
