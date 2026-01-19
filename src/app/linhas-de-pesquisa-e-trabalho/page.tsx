@@ -12,6 +12,18 @@ export default function Projects() {
 
                             <p className="serif">Breve descrição da pesquisa / resumo dela</p>
                         </div>
+
+                        <div className="min-w-full px-4">
+                            <h3 className="text-xl text-(--secondary-color)">Título da pesquisa</h3>
+
+                            <p className="serif">Breve descrição da pesquisa / resumo dela</p>
+                        </div>
+
+                        <div className="min-w-full px-4">
+                            <h3 className="text-xl text-(--secondary-color)">Título da pesquisa</h3>
+
+                            <p className="serif">Breve descrição da pesquisa / resumo dela</p>
+                        </div>
                     </Carousel>
             </section>
 
