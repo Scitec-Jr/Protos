@@ -4,7 +4,7 @@ import Carousel from "@/components/Carousel";
 export default function AboutUs() {
 	return (
 		<main>
-			<section className="max-w-360 mx-auto p-8 lg:px-16">
+			<section className="max-w-360 mx-auto p-8 pb-0 lg:px-16">
 				<h1 className="text-4xl text-(--main-color)">Sobre Nós</h1>
 				<p className="serif">Resumo sobre a pesquisa, com histórico e propostas (MVV)</p>
 			</section>
