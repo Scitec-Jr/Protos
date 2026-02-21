@@ -5,97 +5,95 @@ import Carousel from "@/components/Carousel";
 export default function Home() {
 	return (
 		<main>
-			<section className="flex flex-col sm:flex-row max-w-360 mx-auto">
-				<div className="flex flex-col items-center sm:items-start justify-center flex-1 py-8 ps-8 lg:ps-16">
-					<h1 className="text-6xl text-(--main-color)">PROTOS</h1>
-					<h2 className="text-xl serif">Slogan ou frase inicial</h2>
+			<section className="flex flex-col sm:flex-row gap-4 sm:gap-8 max-w-360 mx-auto p-8 lg:p-16">
+				<div className="flex-1">
+					<h1 className="mb-4 text-4xl text-(--main-color)">Laboratório de Genética do Desenvolvimento</h1>
+
+					<h2 className="mb-4 text-2xl text-(--main-color)">Sobre o laboratório</h2>
+
+					<p className="serif">No Laboratório de Genética do Desenvolvimento estudamos a cascata de segmentação do organismo modelo Drosophila melanogaster (mosca-das-frutas), para investigar mecanismos de transcrição diferencial. Essa cascata é constituída majoritariamente por fatores de transcrição que instruem para a divisão do corpo em segmentos, característica típica do corpo dos insetos.</p>
+                    <br />
+
+					<h2 className="mb-4 text-2xl text-(--main-color)">Base científica</h2>
+
+					<p className="serif">A diferenciação celular é um processo fundamental para o desenvolvimento e a manutenção da vida em organismos multicelulares. Por meio dela, as células adquirem identidades específicas e se especializam funcionalmente, permitindo a divisão de tarefas necessária ao funcionamento integrado de tecidos e órgãos.</p>
+					<br />
+					<p className="serif">No nível molecular, a diferenciação celular é determinada pela regulação da expressão gênica: diferentes tipos celulares ativam conjuntos específicos de genes, estabelecendo padrões espaciais e temporais precisos de expressão. Entre os mecanismos diretamente responsáveis pela diferenciação, destaca-se a transcrição diferencial, que constitui a etapa inicial e o principal nível de controle do funcionamento dos genes.</p>
+					<br />
+
+					<h2 className="mb-4 text-2xl text-(--main-color)">Nossas áreas de interesse</h2>
+
+					<p className="serif">Nossa abordagem experimental é multidisciplinar e incorpora genética molecular, microscopia, bioquímica e bioinformática. Nossos interesses concentram-se nas redes transcricionais e mecanismos moleculares que atuam ao longo da cascata de segmentação.</p>
+					<br />
 				</div>
 
 				<div className="flex-1">
-					<Image src={"/assets/images/placeholder.png"} alt="Placeholder" width={400} height={400} className="w-full" />
-				</div>
-			</section>
+                    <h2 className="mb-4 text-2xl text-(--main-color)">Publicações</h2>
 
-			<section className="flex flex-wrap justify-center gap-8 md:gap-16 pt-16 p-8 lg:px-16">
-				<div className="flex flex-col items-center w-60">
-					<Image src={"/assets/images/placeholder.png"} alt="Placeholder" width={200} height={200} className="w-full mb-4" />
-					<h2 className="serif font-bold text-(--main-color)">Valor de n1</h2>
-					<p className="serif">Descrição</p>
-				</div>
-
-				<div className="flex flex-col items-center w-60">
-					<Image src={"/assets/images/placeholder.png"} alt="Placeholder" width={200} height={200} className="w-full mb-4" />
-					<h2 className="serif font-bold text-(--main-color)">Valor de n1</h2>
-					<p className="serif">Descrição</p>
-				</div>
-
-				<div className="flex flex-col items-center w-60">
-					<Image src={"/assets/images/placeholder.png"} alt="Placeholder" width={200} height={200} className="w-full mb-4" />
-					<h2 className="serif font-bold text-(--main-color)">Valor de n1</h2>
-					<p className="serif">Descrição</p>
-				</div>
-			</section>
-
-			<section className="max-w-360 mx-auto p-8 lg:px-16">
-				<h2 className="text-4xl text-(--main-color)">Postagens recentes</h2>
-				<p className="serif">Descubra mais sobre nossa atuação!</p>
-
-				<div className="grid grid-cols-12 gap-4 bg-(--secondary-color) p-4">
-					<div className="row-span-2 col-span-12 md:col-span-7">
-						<Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
+                    <div className="flex flex-wrap justify-center gap-4 bg-(--secondary-color) p-4 rounded-lg">
+                        <Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
 							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 
 							<div className="absolute bottom-4 left-4 z-10">
-                                <h3 className="text-lg serif">Postagem em Destaque</h3>
-							    <p>11/10/2025</p>
-                            </div>
+								<h3 className="text-lg serif">Postagem em Destaque</h3>
+								<p>11/10/2025</p>
+							</div>
 						</Link>
-					</div>
 
-					<div className="col-span-8 sm:col-span-4 md:col-span-3">
-						<Link href={"/nossos-blogs/blog-cientifico/1"}>
-							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={250} height={150} className="w-full h-full" />
+                        <Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
+							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
+
+							<div className="absolute bottom-4 left-4 z-10">
+								<h3 className="text-lg serif">Postagem em Destaque</h3>
+								<p>11/10/2025</p>
+							</div>
 						</Link>
-					</div>
 
-					<div className="col-span-4 sm:col-span-2 md:col-span-2 flex items-center text-(--main-color)">
-						<Link href={"/nossos-blogs/blog-cientifico"}>Blog Científico &gt;</Link>
-					</div>
+                        <Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
+							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 
-					<div className="col-span-8 sm:col-span-4 md:col-span-3">
-						<Link href={"/nossos-blogs/blog-de-conteudo/1"}>
-							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={250} height={150} className="w-full h-full" />
+							<div className="absolute bottom-4 left-4 z-10">
+								<h3 className="text-lg serif">Postagem em Destaque</h3>
+								<p>11/10/2025</p>
+							</div>
 						</Link>
-					</div>
 
-					<div className="col-span-4 sm:col-span-2 md:col-span-2 flex items-center text-(--main-color)">
-						<Link href={"/nossos-blogs/blog-de-conteudo"}>Blog de Conteúdo &gt;</Link>
-					</div>
-				</div>
+                        <Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
+							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
+
+							<div className="absolute bottom-4 left-4 z-10">
+								<h3 className="text-lg serif">Postagem em Destaque</h3>
+								<p>11/10/2025</p>
+							</div>
+						</Link>
+                    </div>
+                </div>
 			</section>
 
-            <section className="max-w-360 mx-auto p-8 lg:px-16">
-                <div className="flex justify-between mb-4">
-                    <h2 className="text-4xl text-(--main-color)">Galeria de Fotos</h2>
+			<section className="max-w-360 mx-auto p-8 lg:px-16">
+				<div className="flex justify-between mb-4">
+					<h2 className="text-4xl text-(--main-color)">Galeria de Fotos</h2>
 
-                    <Link href={"/nossa-galeria"} className="py-2 px-4 bg-(--secondary-color) text-(--main-color)">Saber mais</Link>
-                </div>
+					<Link href={"/nossa-galeria"} className="py-2 px-4 bg-(--secondary-color) text-(--main-color)">
+						Saber mais
+					</Link>
+				</div>
 
-                <Carousel>
-                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
+				<Carousel>
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
 						<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 					</div>
-                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
 						<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 					</div>
-                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
 						<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 					</div>
-                    <div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
+					<div className="min-w-full md:min-w-auto md:flex-[0_0_50%]">
 						<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
 					</div>
-                </Carousel>
-            </section>
+				</Carousel>
+			</section>
 		</main>
 	);
 }
