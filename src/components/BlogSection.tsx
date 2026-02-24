@@ -55,7 +55,7 @@ export default function BlogSection({ blogs }: { blogs: Blog[] }) {
 				{filteredBlogs.map((blog) => (
 					<a
 						key={blog.id}
-						href={blog.conteudo}
+						href={`/api/blogs/pdf/${blog.id}`}
 						target="_blank"
 						className="
 							group

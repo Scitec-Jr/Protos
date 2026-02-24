@@ -13,6 +13,21 @@
             "name": "Protos",
             "database": "protos",
             "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "scitecjr.com.br",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Protos Hostgator",
+            "database": "scitec98_protos",
+            "username": "scitec98_wp121",
+            "askForPassword": true
         }
     ]
 }

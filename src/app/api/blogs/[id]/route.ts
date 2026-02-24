@@ -1,52 +1,76 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import fs from "fs/promises";
-import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+
+function extractPublicId(url: string) {
+	const parts = url.split("/");
+	const uploadIndex = parts.findIndex(p => p === "upload");
+
+	if (uploadIndex === -1) return null;
+
+	const publicIdWithExtension = parts
+		.slice(uploadIndex + 1)
+		.join("/");
+
+	return publicIdWithExtension.replace(/\.[^/.]+$/, "");
+}
 
 export async function DELETE(
 	req: Request,
 	{ params }: { params: Promise<{ id: string }> }
 ) {
+	try {
 
-	const { id } = await params;
+		const { id } = await params;
 
-	const [rows]: any = await db.execute(
-		"SELECT imagem_capa, conteudo FROM blog WHERE id=?",
-		[id]
-	);
-
-	if (rows.length === 0)
-		return NextResponse.json(
-			{ error: "Blog não encontrado" },
-			{ status: 404 }
+		const [rows]: any = await db.execute(
+			"SELECT imagem_capa, conteudo FROM blog WHERE id=?",
+			[id]
 		);
 
-	// remove pasta do blog
-	const folder = rows[0].imagem_capa
-		.split("/")
-		.slice(0, -1)
-		.join("/");
+		if (rows.length === 0) {
+			return NextResponse.json(
+				{ error: "Blog não encontrado" },
+				{ status: 404 }
+			);
+		}
 
-	const fullPath = path.join(
-		process.cwd(),
-		"public",
-		folder
-	);
+		const imagemUrl = rows[0].imagem_capa;
+		const pdfUrl = rows[0].conteudo;
 
-	await fs.rm(fullPath, {
-		recursive: true,
-		force: true
-	});
+		const imagemPublicId = extractPublicId(imagemUrl);
+		const pdfPublicId = extractPublicId(pdfUrl);
 
-	await db.execute(
-		"DELETE FROM blog WHERE id=?",
-		[id]
-	);
+		if (imagemPublicId) {
+			await cloudinary.uploader.destroy(imagemPublicId, {
+				resource_type: "image",
+			});
+		}
 
-	return NextResponse.json({
-		success: true
-	});
+		if (pdfPublicId) {
+			await cloudinary.uploader.destroy(pdfPublicId, {
+				resource_type: "raw",
+			});
+		}
+
+		await db.execute(
+			"DELETE FROM blog WHERE id=?",
+			[id]
+		);
+
+		return NextResponse.json({ success: true });
+
+	} catch (error) {
+
+		console.log(error);
+
+		return NextResponse.json(
+			{ error: "Erro interno do servidor" },
+			{ status: 500 }
+		);
+
+	}
 }
 
 export async function PUT(
@@ -54,30 +78,42 @@ export async function PUT(
 	{ params }: { params: Promise<{ id: string }> }
 ) {
 
-	const { id } = await params;
+	try {
 
-	const body = await req.json();
+		const { id } = await params;
 
-	const titulo = body.titulo;
+		const body = await req.json();
 
-	if (!titulo)
-		return NextResponse.json(
-			{ error: "Título obrigatório" },
-			{ status: 400 }
+		const titulo = body.titulo;
+
+		if (!titulo) {
+			return NextResponse.json(
+				{ error: "Título obrigatório" },
+				{ status: 400 }
+			);
+		}
+
+		await db.execute(
+			`
+			UPDATE blog
+			SET titulo=?, updated_at=NOW()
+			WHERE id=?
+			`,
+			[titulo, id]
 		);
 
-	await db.execute(
-		`
-		UPDATE blog
-		SET titulo=?, updated_at=NOW()
-		WHERE id=?
-		`,
-		[titulo, id]
-	);
+		return NextResponse.json({ success: true });
 
-	return NextResponse.json({
-		success: true
-	});
+	} catch (error) {
+
+		console.log(error);
+
+		return NextResponse.json(
+			{ error: "Erro interno do servidor" },
+			{ status: 500 }
+		);
+
+	}
 }
 
 export async function GET(req: Request) {
@@ -106,4 +142,3 @@ export async function GET(req: Request) {
 
 	return NextResponse.json(rows);
 }
-

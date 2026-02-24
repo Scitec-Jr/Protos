@@ -1,27 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server";
 import slugify from "slugify";
-import fs from "fs/promises";
-import path from "path";
 import { db } from "@/lib/db";
 import { z } from "zod";
+import { uploadFile } from "@/lib/upload";
 
 const schema = z.object({
-	titulo: z.string().min(3)
+	titulo: z.string().min(3),
 });
 
 export async function GET(req: Request) {
-
 	const { searchParams } = new URL(req.url);
 
 	const busca = searchParams.get("busca") || "";
 	const data = searchParams.get("data") || "";
 
 	let query = `
-		SELECT *
-		FROM blog
-		WHERE titulo LIKE ?
-	`;
+    SELECT *
+    FROM blog
+    WHERE titulo LIKE ?
+  `;
 
 	const params: any[] = [`%${busca}%`];
 
@@ -38,9 +36,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-
 	try {
-
 		const formData = await req.formData();
 
 		const titulo = formData.get("titulo") as string;
@@ -49,66 +45,37 @@ export async function POST(req: Request) {
 
 		schema.parse({ titulo });
 
-		if (!imagem || !pdf)
-			return NextResponse.json(
-				{ error: "Arquivos obrigatórios" },
-				{ status: 400 }
-			);
-
-		const [result]: any = await db.execute(
-			"INSERT INTO blog (titulo, imagem_capa, conteudo) VALUES (?, '', '')",
-			[titulo]
-		);
-
-		const id = result.insertId;
+		if (!imagem || !pdf) {
+			return NextResponse.json({ error: "Arquivos obrigatórios" }, { status: 400 });
+		}
 
 		const slug = slugify(titulo, { lower: true });
-
-		const folder = `blog/${id}-${slug}`;
-
-		const fullPath = path.join(
-			process.cwd(),
-			"public",
-			folder
-		);
-
-		await fs.mkdir(fullPath, { recursive: true });
+		const timestamp = Date.now();
 
 		const imagemBuffer = Buffer.from(await imagem.arrayBuffer());
 		const pdfBuffer = Buffer.from(await pdf.arrayBuffer());
 
-		await fs.writeFile(
-			path.join(fullPath, "capa.png"),
-			imagemBuffer
-		);
+		const imagemUpload = await uploadFile(imagemBuffer, "blogs", `${slug}-${timestamp}`, "image");
 
-		await fs.writeFile(
-			path.join(fullPath, "conteudo.pdf"),
-			pdfBuffer
-		);
+		const pdfUpload = await uploadFile(pdfBuffer, "blogs", `${slug}-${timestamp}`, "raw");
+        const pdfUrl = pdfUpload.secure_url + ".pdf"
 
 		await db.execute(
 			`
-			UPDATE blog
-			SET imagem_capa=?, conteudo=?
-			WHERE id=?
-			`,
-			[
-				`/${folder}/capa.png`,
-				`/${folder}/conteudo.pdf`,
-				id
-			]
+      INSERT INTO blog (
+        titulo,
+        imagem_capa,
+        conteudo
+      )
+      VALUES (?, ?, ?)
+      `,
+			[titulo, imagemUpload.secure_url, pdfUpload.secure_url],
 		);
 
 		return NextResponse.json({ success: true });
-
 	} catch (error) {
-        console.log(error);
-		return NextResponse.json(
-			{ error: "Erro interno do servidor" },
-			{ status: 500 }
-		);
+		console.log(error);
 
+		return NextResponse.json({ error: "Erro interno do servidor" }, { status: 500 });
 	}
-
 }
