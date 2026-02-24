@@ -58,7 +58,6 @@ export async function POST(req: Request) {
 		const imagemUpload = await uploadFile(imagemBuffer, "blogs", `${slug}-${timestamp}`, "image");
 
 		const pdfUpload = await uploadFile(pdfBuffer, "blogs", `${slug}-${timestamp}`, "raw");
-        const pdfUrl = pdfUpload.secure_url + ".pdf"
 
 		await db.execute(
 			`

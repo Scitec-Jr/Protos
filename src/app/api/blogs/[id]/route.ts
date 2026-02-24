@@ -39,8 +39,8 @@ export async function DELETE(
 		const imagemUrl = rows[0].imagem_capa;
 		const pdfUrl = rows[0].conteudo;
 
-		const imagemPublicId = extractPublicId(imagemUrl);
-		const pdfPublicId = extractPublicId(pdfUrl);
+		const imagemPublicId = extractPublicId(imagemUrl)!.split("/").slice(1).join("/");
+		const pdfPublicId = extractPublicId(pdfUrl)!.split("/").slice(1).join("/");
 
 		if (imagemPublicId) {
 			await cloudinary.uploader.destroy(imagemPublicId, {
