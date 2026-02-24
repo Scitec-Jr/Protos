@@ -95,7 +95,7 @@ export async function PUT(
 
 		await db.execute(
 			`
-			UPDATE blog
+			UPDATE Blog
 			SET titulo=?, updated_at=NOW()
 			WHERE id=?
 			`,

@@ -61,7 +61,7 @@ export async function POST(req: Request) {
 
 		await db.execute(
 			`
-      INSERT INTO blog (
+      INSERT INTO Blog (
         titulo,
         imagem_capa,
         conteudo
