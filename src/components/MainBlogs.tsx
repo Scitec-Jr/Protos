@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import Image from "next/image";
 import { Blog } from "@/types/blog";
 
-export default async function MainBlogs({ blogs }: { blogs: Blog[] }) {
+export default function MainBlogs({ blogs }: { blogs: Blog[] }) {
 	if (blogs.length === 0) return <p className="text-gray-500">Nenhuma publicação encontrada</p>;
 
 	return (

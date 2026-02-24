@@ -12,10 +12,7 @@ type PageParams = {
 	}>;
 };
 
-export default async function BlogTemplate({
-	searchParams
-}: PageParams) {
-
+export default async function BlogTemplate({ searchParams }: PageParams) {
 	const query = (await searchParams)?.q || "";
 
 	const sql = `
@@ -30,16 +27,7 @@ export default async function BlogTemplate({
 		ORDER BY created_at DESC
 	`;
 
-	const [blogs] = await db.execute(
-		sql,
-		[`%${query}%`]
-	) as [Blog[], any];
+	const [blogs] = (await db.execute(sql, [`%${query}%`])) as [Blog[], any];
 
-	return (
-
-		<BlogSection
-			blogs={blogs}
-		/>
-
-	);
+	return <BlogSection blogs={blogs} />;
 }
