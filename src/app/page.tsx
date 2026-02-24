@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Carousel from "@/components/Carousel";
+import MainBlogs from "@/components/MainBlogs";
 
 export default function Home() {
 	return (
@@ -30,43 +31,7 @@ export default function Home() {
 				<div className="flex-1">
                     <h2 className="mb-4 text-2xl text-(--main-color)">Publicações</h2>
 
-                    <div className="flex flex-wrap justify-center gap-4 bg-(--secondary-color) p-4 rounded-lg">
-                        <Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
-							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
-
-							<div className="absolute bottom-4 left-4 z-10">
-								<h3 className="text-lg serif">Postagem em Destaque</h3>
-								<p>11/10/2025</p>
-							</div>
-						</Link>
-
-                        <Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
-							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
-
-							<div className="absolute bottom-4 left-4 z-10">
-								<h3 className="text-lg serif">Postagem em Destaque</h3>
-								<p>11/10/2025</p>
-							</div>
-						</Link>
-
-                        <Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
-							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
-
-							<div className="absolute bottom-4 left-4 z-10">
-								<h3 className="text-lg serif">Postagem em Destaque</h3>
-								<p>11/10/2025</p>
-							</div>
-						</Link>
-
-                        <Link href={"/nossos-blogs/blog-de-conteudo/1"} className="relative flex flex-col justify-end h-full">
-							<Image src={"/assets/images/placeholder.png"} alt="Blog em destaque" width={500} height={300} className="w-full h-full" />
-
-							<div className="absolute bottom-4 left-4 z-10">
-								<h3 className="text-lg serif">Postagem em Destaque</h3>
-								<p>11/10/2025</p>
-							</div>
-						</Link>
-                    </div>
+                    <MainBlogs />
                 </div>
 			</section>
 
