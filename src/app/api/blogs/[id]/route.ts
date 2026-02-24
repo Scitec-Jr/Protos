@@ -25,7 +25,7 @@ export async function DELETE(
 		const { id } = await params;
 
 		const [rows]: any = await db.execute(
-			"SELECT imagem_capa, conteudo FROM blog WHERE id=?",
+			"SELECT imagem_capa, conteudo FROM Blog WHERE id=?",
 			[id]
 		);
 
@@ -55,7 +55,7 @@ export async function DELETE(
 		}
 
 		await db.execute(
-			"DELETE FROM blog WHERE id=?",
+			"DELETE FROM Blog WHERE id=?",
 			[id]
 		);
 
@@ -125,7 +125,7 @@ export async function GET(req: Request) {
 
 	let query = `
 		SELECT *
-		FROM blog
+		FROM Blog
 		WHERE titulo LIKE ?
 	`;
 

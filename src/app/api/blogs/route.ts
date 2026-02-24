@@ -17,7 +17,7 @@ export async function GET(req: Request) {
 
 	let query = `
     SELECT *
-    FROM blog
+    FROM Blog
     WHERE titulo LIKE ?
   `;
 

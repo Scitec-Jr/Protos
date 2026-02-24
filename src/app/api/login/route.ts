@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     console.log(email)
 
 	const [rows]: any = await db.query(
-		"SELECT * FROM user WHERE email = ?",
+		"SELECT * FROM User WHERE email = ?",
 		[email]
 	);
 

@@ -12,7 +12,7 @@ export default async function MainBlogs() {
             conteudo,
 			imagem_capa,
 			created_at
-		FROM blog
+		FROM Blog
 		ORDER BY created_at DESC
 		LIMIT 4
 		`,

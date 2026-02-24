@@ -9,7 +9,7 @@ export async function GET(
   const { id } = await params;
 
   const [rows]: any = await db.execute(
-    "SELECT conteudo FROM blog WHERE id=?",
+    "SELECT conteudo FROM Blog WHERE id=?",
     [id]
   );
 
