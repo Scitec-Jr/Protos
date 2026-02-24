@@ -1,25 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const dynamic = 'force-dynamic';
-
 import Image from "next/image";
-import { db } from "@/lib/db";
 import { Blog } from "@/types/blog";
 
-export default async function MainBlogs() {
-	const [blogs] = (await db.execute(
-		`
-		SELECT
-			id,
-			titulo,
-            conteudo,
-			imagem_capa,
-			created_at
-		FROM Blog
-		ORDER BY created_at DESC
-		LIMIT 4
-		`,
-	)) as [Blog[], any];
-
+export default async function MainBlogs({ blogs }: { blogs: Blog[] }) {
 	if (blogs.length === 0) return <p className="text-gray-500">Nenhuma publicação encontrada</p>;
 
 	return (
