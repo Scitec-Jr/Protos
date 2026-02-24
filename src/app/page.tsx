@@ -1,26 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import Link from "next/link";
 import Carousel from "@/components/Carousel";
 import MainBlogs from "@/components/MainBlogs";
-import { db } from "@/lib/db";
-import { Blog } from "@/types/blog";
 
 export default async function Home() {
-    const [blogs] = (await db.execute(
-            `
-            SELECT
-                id,
-                titulo,
-                conteudo,
-                imagem_capa,
-                created_at
-            FROM Blog
-            ORDER BY created_at DESC
-            LIMIT 4
-            `,
-        )) as [Blog[], any];
-
 	return (
 		<main>
 			<section className="flex flex-col sm:flex-row gap-4 sm:gap-8 max-w-360 mx-auto p-8 lg:p-16">
@@ -48,7 +31,7 @@ export default async function Home() {
 				<div className="flex-1">
                     <h2 className="mb-4 text-2xl text-(--main-color)">Publicações</h2>
 
-                    <MainBlogs blogs={blogs} />
+                    <MainBlogs />
                 </div>
 			</section>
 
