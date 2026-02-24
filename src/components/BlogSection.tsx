@@ -15,10 +15,6 @@ export default function BlogSection({ blogs }: { blogs: Blog[] }) {
 		);
 	}, [search, blogs]);
 
-    filteredBlogs.forEach(blog => {
-        console.log(blog)
-    })
-
 	return (
 		<>
 			<section className="max-w-7xl mx-auto px-6 pt-10">
