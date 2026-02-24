@@ -4,11 +4,10 @@ import { db } from "@/lib/db";
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
 
-  // Busca a URL do PDF no banco
   const [rows]: any = await db.execute(
     "SELECT conteudo FROM blog WHERE id=?",
     [id]
@@ -19,8 +18,6 @@ export async function GET(
   }
 
   const pdfUrl: string = rows[0].conteudo;
-
-  // Pega o arquivo do Cloudinary
   const res = await fetch(pdfUrl);
 
   if (!res.ok) {
@@ -30,7 +27,6 @@ export async function GET(
   const arrayBuffer = await res.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
 
-  // Retorna o PDF inline
   return new NextResponse(buffer, {
     headers: {
       "Content-Type": "application/pdf",
