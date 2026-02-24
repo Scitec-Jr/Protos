@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const revalidate = 0;
+export const dynamic = 'force-dynamic';
 
 import Image from "next/image";
 import { db } from "@/lib/db";
