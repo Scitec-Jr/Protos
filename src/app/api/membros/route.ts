@@ -16,7 +16,7 @@ export async function GET(req: Request) {
 
 	let query = `
     SELECT *
-    FROM membros
+    FROM Membros
     WHERE nome LIKE ?
   `;
 
@@ -63,7 +63,7 @@ export async function POST(req: Request) {
 
 		await db.execute(
 			`
-      INSERT INTO membros (
+      INSERT INTO Membros (
         nome,
         descricao,
         foto,

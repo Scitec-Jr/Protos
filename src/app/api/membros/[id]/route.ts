@@ -26,7 +26,7 @@ export async function DELETE(
 		const { id } = await params;
 
 		const [rows]: any = await db.execute(
-			"SELECT foto FROM membros WHERE id=?",
+			"SELECT foto FROM Membros WHERE id=?",
 			[id]
 		);
 
@@ -48,7 +48,7 @@ export async function DELETE(
 		}
 
 		await db.execute(
-			"DELETE FROM membros WHERE id=?",
+			"DELETE FROM Membros WHERE id=?",
 			[id]
 		);
 
@@ -91,15 +91,13 @@ export async function PUT(
 			);
 		}
 
-		// Se houver nova foto, fazer upload
 		let fotoUrl = null;
 		if (fotoEdit) {
 			const fotoBuffer = Buffer.from(await fotoEdit.arrayBuffer());
 			const fotoUpload = await uploadFile(fotoBuffer, "membros", `${nome.replace(/\s+/g, "-")}-${Date.now()}`, "image");
 			fotoUrl = fotoUpload.secure_url;
 
-			// Deletar foto antiga
-			const [rows]: any = await db.execute("SELECT foto FROM membros WHERE id=?", [id]);
+			const [rows]: any = await db.execute("SELECT foto FROM Membros WHERE id=?", [id]);
 			if (rows.length > 0) {
 				const fotoAntigaUrl = rows[0].foto;
 				const fotoPublicId = extractPublicId(fotoAntigaUrl)?.split("/").slice(1).join("/");
@@ -142,7 +140,7 @@ export async function PUT(
 		values.push(id);
 
 		await db.execute(
-			`UPDATE membros SET ${updates.join(", ")} WHERE id=?`,
+			`UPDATE Membros SET ${updates.join(", ")} WHERE id=?`,
 			values
 		);
 
@@ -170,7 +168,7 @@ export async function GET(
 		const { id } = await params;
 
 		const [rows]: any = await db.execute(
-			"SELECT * FROM membros WHERE id=?",
+			"SELECT * FROM Membros WHERE id=?",
 			[id]
 		);
 
