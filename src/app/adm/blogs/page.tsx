@@ -2,13 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
-type Blog = {
-	id: number;
-	titulo: string;
-	imagem_capa: string;
-	created_at: string;
-};
+import Link from "next/link";
+import { Blog } from "@/types/blog";
 
 export default function AdminBlogs() {
 	const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -144,6 +139,7 @@ export default function AdminBlogs() {
 
 			<main className="flex-1 p-8">
 				<div className="mb-8">
+                    <Link href="membros" className="text-blue-600 hover:text-blue-800 transition-colors">Gerenciar membros</Link>
 					<h1 className="text-3xl font-bold text-gray-900 mb-4">Gerenciar Blogs</h1>
 					<input type="text" placeholder="Buscar por título..." value={busca} onChange={(e) => setBusca(e.target.value)} className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" />
 				</div>

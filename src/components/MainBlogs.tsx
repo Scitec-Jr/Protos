@@ -20,8 +20,6 @@ export default async function MainBlogs() {
             `,
 	)) as [Blog[], any];
 
-    console.log(blogs)
-
 	if (!blogs.length) return <p className="text-gray-500">Nenhuma publicação encontrada</p>;
 
 	return (
